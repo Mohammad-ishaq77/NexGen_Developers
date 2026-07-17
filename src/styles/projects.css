@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.projectSection {
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 40px;
+  position: relative;
+}
+
+.projectLine {
+  width: 100%;
+  height: 1px;
+  background: #000000;
+}
+
+.projectTag {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: default;
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  transform: rotate(-18deg);
+}
+
+/* ==========================================
+   PROJECTS CONTAINER - FIXED HEIGHT
+   ========================================== */
+
+.projectsContainer {
+  width: 92%;
+  max-width: 1200px;
+  margin-top: 30px;
+  position: relative;
+  height: 520px;
+  min-height: 520px;
+  max-height: 520px;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+/* ==========================================
+   PROJECT CARD - ABSOLUTE STACKED
+   ========================================== */
+
+.projectCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  visibility: visible !important;
+  pointer-events: auto;
+}
+
+/* ==========================================
+   LEFT: PROJECT INFO
+   ========================================== */
+
+.projectInfo {
+  padding: 40px 32px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding-top: 48px;
+}
+
+.projectNumber {
+  font-family: "Inter", sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: #e0e0e0;
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -2px;
+}
+
+.projectTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: #000000;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+}
+
+.projectDescription {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 420px;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.techTag {
+  font-family: "IBM Plex Mono", monospace;
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  transform-origin: center center;
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.projectButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border: none;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.btnPrimary {
+  background: #0a0a0a;
+  color: #ffffff;
+  border: 1px solid #0a0a0a;
+}
+
+.btnPrimary:hover {
+  background: #333333;
+}
+
+.btnSecondary {
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+}
+
+.btnSecondary:hover {
+  background: #f5f5f5;
+}
+
+.arrowIcon {
+  font-size: 13px;
+  transform: rotate(-45deg);
+  display: inline-block;
+}
+
+/* ==========================================
+   RIGHT: PROJECT IMAGE
+   ========================================== */
+
+.projectImage {
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, opacity;
+  width: 100%;
+  height: 100%;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 900px) {
+  .projectsContainer {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .projectCard {
+    position: relative;
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+    margin-bottom: 20px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  .projectCard * {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .projectImage {
+    min-height: 220px;
+    order: -1;
+  }
+
+  .projectInfo {
+    padding: 24px 20px;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .projectNumber {
+    font-size: 40px;
+  }
+
+  .projectTitle {
+    font-size: 32px;
+  }
+}
