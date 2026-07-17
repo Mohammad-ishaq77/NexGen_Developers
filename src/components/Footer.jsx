@@ -108,15 +108,15 @@ function Footer() {
   }, []);
 
   const handleScheduleClick = () => {
-    window.open("https://calendly.com/saibbyweb", "_blank", "noopener,noreferrer");
+    window.open("#", "_blank", "noopener,noreferrer");
   };
 
   const handleEmailClick = () => {
-    window.location.href = "mailto:hello@saibbyweb.com";
+    window.location.href = "#";
   };
 
   const handlePhoneClick = () => {
-    window.location.href = "tel:+918082007711";
+    window.location.href = "#";
   };
 
   const handleSocialClick = (url) => {
