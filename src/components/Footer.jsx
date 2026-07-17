@@ -224,7 +224,7 @@ function Footer() {
         <div className="bottomItem socialRow">
           <button
             className="socialIcon"
-            onClick={() => handleSocialClick("https://instagram.com/saibbyweb")}
+            onClick={() => handleSocialClick("#")}
             aria-label="Instagram"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -235,7 +235,7 @@ function Footer() {
           </button>
           <button
             className="socialIcon"
-            onClick={() => handleSocialClick("https://facebook.com/saibbyweb")}
+            onClick={() => handleSocialClick("#")}
             aria-label="Facebook"
           >
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -244,7 +244,7 @@ function Footer() {
           </button>
           <button
             className="socialIcon"
-            onClick={() => handleSocialClick("https://linkedin.com/company/saibbyweb")}
+            onClick={() => handleSocialClick("#")}
             aria-label="LinkedIn"
           >
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -255,7 +255,7 @@ function Footer() {
           </button>
           <button
             className="socialIcon"
-            onClick={() => handleSocialClick("https://twitter.com/saibbyweb")}
+            onClick={() => handleSocialClick("#")}
             aria-label="Twitter"
           >
             <svg viewBox="0 0 24 24" fill="currentColor">
