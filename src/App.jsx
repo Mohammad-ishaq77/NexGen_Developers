@@ -1,19 +1,76 @@
-import HeroSection from "./components/HeroSection";
-import Services from "./components/Services";
-import Project from "./components/Project";
-import Technologies from "./components/Technologies";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HeroSection from "./components/HeroSection/HeroSection";
+import Services, { servicesData } from "./components/Services/Services";
+import ServiceDetail from "./components/Services/ServiceDetail";
+import Project from "./components/Projects/Project";
+import Technologies from "./components/Technologies/Technologies";
+import Footer from "./components/Footer/Footer";
+import { useState } from "react";
 import "./App.css";
 
-function App() {
+function HomePage({ onSelectService }) {
   return (
-    <main>
+    <>
       <HeroSection />
-      <Services />
-      <Project />
-      <Technologies />
+
+      <section id="services">
+        <Services onSelectService={onSelectService} />
+      </section>
+
+      <section id="projects">
+        <Project />
+      </section>
+
+      <section id="technologies">
+        <Technologies />
+      </section>
+
       <Footer />
-    </main>
+    </>
+  );
+}
+
+function ServicesPage({ onSelectService }) {
+  return (
+    <>
+      <div style={{ paddingTop: "90px" }}>
+        <Services onSelectService={onSelectService} />
+      </div>
+
+      <Footer />
+    </>
+  );
+}
+
+function App() {
+  const [selectedServiceId, setSelectedServiceId] = useState(null);
+
+  const selectedService =
+    selectedServiceId !== null
+      ? servicesData.find((service) => service.id === selectedServiceId)
+      : null;
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePage onSelectService={setSelectedServiceId} />}
+        />
+
+        <Route
+          path="/services"
+          element={<ServicesPage onSelectService={setSelectedServiceId} />}
+        />
+      </Routes>
+
+      {selectedService && (
+        <ServiceDetail
+          service={selectedService}
+          onBack={() => setSelectedServiceId(null)}
+        />
+      )}
+    </BrowserRouter>
   );
 }
 

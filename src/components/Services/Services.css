@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+  background: transparent;
+}
+
+.navbar--scrolled {
+  background: #000000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar__logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar__links a:hover {
+  color: #ffffff;
+}
+
+/* ============================================
+   SERVICES SECTION
+   ============================================ */
+.services-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #0a0a0a;
+  position: relative;
+  overflow: visible;
+  padding-top: 80px; /* reduced from 120px to account for navbar + heading */
+}
+
+/* ============================================
+   DARK BACKGROUND
+   ============================================ */
+.services-bg-dark {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, #1a1a2e 0%, #0a0a0a 50%, #000000 100%);
+  pointer-events: none;
+}
+
+/* ============================================
+   PERSPECTIVE GRID FLOOR
+   ============================================ */
+.services-grid {
+  position: absolute;
+  inset: 0;
+  perspective: 500px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.services-grid__floor {
+  position: absolute;
+  bottom: -30%;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  transform: rotateX(75deg);
+  transform-origin: center top;
+}
+
+.services-grid__line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0;
+}
+
+.services-grid__line--horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.services-grid__line--vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.services-grid__horizon {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* ============================================
+   FLOATING STARS
+   ============================================ */
+.services-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.services-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.4);
+  animation: twinkle 3s ease-in-out infinite;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ============================================
+   SERVICES HEADING BOX — Same as Projects
+   ============================================ */
+.services-heading-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 24px;
+}
+
+.services-heading-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 36px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.services-heading__text {
+  font-family: 'Orbitron', 'Exo 2', sans-serif;
+  font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.services-heading__chars {
+  display: inline-block;
+}
+
+.services-heading__char {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+/* ============================================
+   SCROLL TRIGGER WRAPPER
+   ============================================ */
+.scroll-trigger-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+/* ===== SERVICES TRACK (Horizontal) ===== */
+.services-track {
+  display: flex;
+  gap: 40px;
+  padding: 0 80px;
+  will-change: transform;
+  margin-left: auto;
+  padding-left: 45vw;
+}
+
+/* ===== SERVICE CARD ===== */
+.service-card {
+  min-width: 420px;   /* reduced from 460px */
+  max-width: 420px;   /* reduced from 460px */
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.4s ease;
+  will-change: transform, opacity;
+}
+
+.service-card:hover {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   IMAGE AREA — FULL FIT
+   ============================================ */
+.service-card__image {
+  position: relative;
+  width: 100%;
+  height: 260px;  /* reduced from 300px */
+  background: linear-gradient(180deg, #e8f0fe 0%, #d2e3fc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.service-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .service-card__image img {
+  transform: scale(1.05);
+}
+
+/* Number Badge */
+.service-card__number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  background: #6b7280;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, sans-serif;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+.service-card__divider {
+  width: 100%;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* ============================================
+   CONTENT AREA
+   ============================================ */
+.service-card__content {
+  padding: 28px 28px 32px;  /* slightly reduced from 32px 32px 36px */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-card__title {
+  font-size: 1.8rem;  /* reduced from 2rem */
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.service-card__subtitle {
+  font-size: 0.95rem;  /* slightly reduced from 1rem */
+  font-weight: 500;
+  color: #6b7280;
+  line-height: 1.4;
+  margin: 0;
+  font-family: "IBM Plex Mono", "Fira Code", "Courier New", monospace;  /* changed to IBM Plex Mono */
+  letter-spacing: 0.2px;
+}
+
+.service-card__description {
+  font-size: 0.95rem;  /* reduced from 1.05rem */
+  line-height: 1.7;
+  color: #6b7280;
+  margin: 0;
+  font-family: "IBM Plex Mono", "Fira Code", "Courier New", monospace;  /* changed to IBM Plex Mono */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================
+   LEARN MORE BUTTON
+   ============================================ */
+.service-card__button {
+  align-self: flex-end;
+  margin-top: 16px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111827;
+  background: transparent;
+  border: 2px solid #374151;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.service-card__button:hover {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 14px 24px;
+  }
+
+  .navbar__links {
+    gap: 20px;
+  }
+
+  .services-section {
+    padding-top: 60px;
+  }
+
+  .services-heading-wrapper {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .services-heading-box {
+    padding: 12px 24px;
+    border-radius: 10px;
+  }
+
+  .services-heading__text {
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  }
+
+  .services-track {
+    padding: 0 40px;
+    padding-left: 30vw;
+    gap: 28px;
+  }
+
+  .service-card {
+    min-width: 360px;  /* reduced from 380px */
+    max-width: 360px;
+  }
+
+  .service-card__image {
+    height: 230px;  /* reduced from 250px */
+  }
+
+  .service-card__title {
+    font-size: 1.6rem;
+  }
+
+  .service-card__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .service-card__description {
+    font-size: 0.9rem;
+  }
+
+  .service-card__number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .navbar__links {
+    gap: 14px;
+  }
+
+  .navbar__links a {
+    font-size: 0.85rem;
+  }
+
+  .services-section {
+    padding-top: 50px;
+  }
+
+  .services-heading-wrapper {
+    padding-top: 32px;
+    padding-bottom: 16px;
+  }
+
+  .services-heading-box {
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+
+  .services-heading__text {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+  }
+
+  .services-track {
+    padding: 0 24px;
+    padding-left: 20vw;
+    gap: 20px;
+  }
+
+  .service-card {
+    min-width: 280px;  /* reduced from 300px */
+    max-width: 280px;
+  }
+
+  .service-card__image {
+    height: 190px;  /* reduced from 210px */
+  }
+
+  .service-card__title {
+    font-size: 1.3rem;
+  }
+
+  .service-card__subtitle {
+    font-size: 0.85rem;
+  }
+
+  .service-card__description {
+    font-size: 0.85rem;
+  }
+
+  .service-card__number {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .service-card__button {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+}

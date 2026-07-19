@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Fira+Code:wght@400;500;600&display=swap");
+
+/* ============================================
+   TECH STACK SECTION — DARK CYBERPUNK THEME
+   ============================================ */
+.techStackSection {
+  width: 100%;
+  min-height: 100vh;
+  background: #050508;
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================
+   DARK BACKGROUND with aurora glows
+   ============================================ */
+.tech-bg-dark {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139,92,246,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(56,189,248,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, #12121e 0%, #050508 50%, #000000 100%);
+  pointer-events: none;
+}
+
+/* ============================================
+   PERSPECTIVE GRID FLOOR — indigo tint
+   ============================================ */
+.tech-grid {
+  position: absolute;
+  inset: 0;
+  perspective: 600px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tech-grid__floor {
+  position: absolute;
+  bottom: -35%;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  transform: rotateX(75deg);
+  transform-origin: center top;
+}
+
+.tech-grid__line {
+  position: absolute;
+  background: rgba(99, 102, 241, 0.12);
+  opacity: 0;
+}
+
+.tech-grid__line--horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.tech-grid__line--vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.tech-grid__horizon {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.2), rgba(139,92,246,0.15), transparent);
+}
+
+/* ============================================
+   FLOATING STARS — soft indigo glow
+   ============================================ */
+.tech-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tech-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #a5b4fc;
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px 3px rgba(165, 180, 252, 0.35),
+    0 0 20px 6px rgba(99, 102, 241, 0.1);
+  animation: twinkle 3s ease-in-out infinite;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* ============================================
+   HEADING BOX — glassmorphism terminal style
+   ============================================ */
+.tech-heading-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+
+.tech-heading-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 14px;
+  padding: 18px 40px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 40px rgba(99, 102, 241, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient border */
+.tech-heading-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.5), rgba(139,92,246,0.3), transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.tech-heading__prefix {
+  font-family: 'Fira Code', 'IBM Plex Mono', monospace;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 600;
+  color: #6366f1;
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+  50% { text-shadow: 0 0 30px rgba(99, 102, 241, 0.8), 0 0 50px rgba(99, 102, 241, 0.3); }
+}
+
+.tech-heading__text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  color: #e0e7ff;
+  margin: 0;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.tech-heading__cursor {
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  color: #6366f1;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.tech-heading__chars {
+  display: inline-block;
+}
+
+.tech-heading__char {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+/* ============================================
+   TECH STACK GRID
+   ============================================ */
+.techStackGrid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 92%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* ============================================
+   TECH CARD — with glow & gradient border
+   ============================================ */
+.techCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 36px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: background 0.4s ease;
+  overflow: hidden;
+}
+
+.techCard:hover {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+/* Radial glow behind card on hover */
+.techCard-glow {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle at center, rgba(99,102,241,0.15) 0%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animated gradient border on hover */
+.techCard-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(139,92,246,0.2), transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.techIconWrapper {
+  position: relative;
+  z-index: 2;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.techIcon {
+  width: 40px;
+  height: 40px;
+  color: #c7d2fe;
+  will-change: transform;
+}
+
+.techIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.techName {
+  position: relative;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e0e7ff;
+  margin-bottom: 6px;
+  will-change: transform;
+}
+
+.techCategory {
+  position: relative;
+  z-index: 2;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(165, 180, 252, 0.55);
+  text-transform: lowercase;
+  letter-spacing: 0.6px;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET (max-width: 900px)
+   ============================================ */
+@media (max-width: 900px) {
+  .tech-heading-wrapper {
+    padding-top: 50px;
+    padding-bottom: 36px;
+  }
+
+  .tech-heading-box {
+    padding: 14px 28px;
+    gap: 8px;
+  }
+
+  .tech-heading__text {
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  }
+
+  .techStackGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 94%;
+  }
+
+  .techCard {
+    padding: 30px 20px 26px;
+  }
+
+  .techIconWrapper {
+    width: 58px;
+    height: 58px;
+  }
+
+  .techIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .techName {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .tech-heading-wrapper {
+    padding-top: 36px;
+    padding-bottom: 28px;
+  }
+
+  .tech-heading-box {
+    padding: 12px 20px;
+    gap: 6px;
+  }
+
+  .tech-heading__text {
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+  }
+
+  .techStackGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    width: 92%;
+    padding: 0 14px;
+  }
+
+  .techCard {
+    padding: 24px 14px 22px;
+    border-radius: 16px;
+  }
+
+  .techIconWrapper {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+  }
+
+  .techIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .techName {
+    font-size: 0.92rem;
+    margin-bottom: 3px;
+  }
+
+  .techCategory {
+    font-size: 0.72rem;
+  }
+}

@@ -1,0 +1,506 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   PROJECTS SECTION — DARK THEME
+   ============================================ */
+.projects-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 60px;
+  position: relative;
+  overflow: visible;
+}
+
+/* ============================================
+   DARK BACKGROUND
+   ============================================ */
+.projects-bg-dark {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, #1a1a2e 0%, #0a0a0a 50%, #000000 100%);
+  pointer-events: none;
+}
+
+/* ============================================
+   PERSPECTIVE GRID FLOOR
+   ============================================ */
+.projects-grid {
+  position: absolute;
+  inset: 0;
+  perspective: 500px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.projects-grid__floor {
+  position: absolute;
+  bottom: -30%;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  transform: rotateX(75deg);
+  transform-origin: center top;
+}
+
+.projects-grid__line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0;
+}
+
+.projects-grid__line--horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.projects-grid__line--vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.projects-grid__horizon {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* ============================================
+   FLOATING STARS
+   ============================================ */
+.projects-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.projects-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.4);
+  animation: twinkle 3s ease-in-out infinite;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ============================================
+   HEADING BOX
+   ============================================ */
+.projects-heading-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 24px;
+}
+
+.projects-heading-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 36px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.projects-heading__text {
+  font-family: 'Orbitron', 'Exo 2', sans-serif;
+  font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.projects-heading__chars {
+  display: inline-block;
+}
+
+.projects-heading__char {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+/* ============================================
+   PROJECTS CONTAINER
+   ============================================ */
+.projectsContainer {
+  width: 92%;
+  max-width: 1200px;
+  margin-top: 20px;
+  position: relative;
+  height: 520px;
+  min-height: 520px;
+  max-height: 520px;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+/* ============================================
+   PROJECT CARD
+   ============================================ */
+.projectCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111111;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  visibility: visible !important;
+  pointer-events: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   LEFT: PROJECT INFO
+   ============================================ */
+.projectInfo {
+  padding: 40px 32px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding-top: 48px;
+}
+
+.projectNumber {
+  font-family: "Inter", sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.12);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -2px;
+}
+
+.projectTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+}
+
+.projectDescription {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 420px;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.techTag {
+  font-family: "IBM Plex Mono", monospace;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.3px;
+  display: inline-block;
+  transform-origin: center center;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.projectButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border: none;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.btnPrimary {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #ffffff;
+}
+
+.btnPrimary:hover {
+  background: #e5e7eb;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.arrowIcon {
+  font-size: 13px;
+  transform: rotate(-45deg);
+  display: inline-block;
+}
+
+/* ============================================
+   RIGHT: PROJECT IMAGE
+   ============================================ */
+.projectImage {
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, opacity;
+  width: 100%;
+  height: 100%;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET (max-width: 900px)
+   Cards animate the same way but layout adjusts
+   ============================================ */
+@media (max-width: 900px) {
+  .projects-section {
+    padding: 0 0 40px;
+  }
+
+  .projects-heading-wrapper {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .projects-heading-box {
+    padding: 12px 24px;
+    border-radius: 10px;
+  }
+
+  .projects-heading__text {
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  }
+
+  .projectsContainer {
+    width: 94%;
+    height: 600px;
+    min-height: 600px;
+    max-height: 600px;
+    margin-top: 16px;
+  }
+
+  .projectCard {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+
+  .projectImage {
+    min-height: 220px;
+    order: -1;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .projectInfo {
+    padding: 24px 20px;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .projectNumber {
+    font-size: 40px;
+  }
+
+  .projectTitle {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .projectDescription {
+    font-size: 13px;
+    max-width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .techTags {
+    gap: 6px;
+  }
+
+  .techTag {
+    padding: 5px 12px;
+    font-size: 10px;
+  }
+
+  .projectButtons {
+    margin-top: 14px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   Same animation, tighter layout
+   ============================================ */
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 0 0 32px;
+  }
+
+  .projects-heading-wrapper {
+    padding-top: 32px;
+    padding-bottom: 16px;
+  }
+
+  .projects-heading-box {
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+
+  .projects-heading__text {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+  }
+
+  .projectsContainer {
+    width: 92%;
+    height: 520px;
+    min-height: 520px;
+    max-height: 520px;
+    margin-top: 12px;
+  }
+
+  .projectCard {
+    border-radius: 12px;
+  }
+
+  .projectImage {
+    min-height: 160px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .projectInfo {
+    padding: 16px 14px;
+  }
+
+  .projectNumber {
+    font-size: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 2px;
+  }
+
+  .projectTitle {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .projectDescription {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .techTags {
+    gap: 5px;
+  }
+
+  .techTag {
+    padding: 4px 10px;
+    font-size: 9px;
+    border-radius: 3px;
+  }
+
+  .projectButtons {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .arrowIcon {
+    font-size: 11px;
+  }
+}

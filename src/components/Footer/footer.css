@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   FOOTER SECTION — COMPLETELY DARK
+   ========================================== */
+
+.footerSection {
+  width: 100%;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 100px 0 0;
+  position: relative;
+}
+
+/* ==========================================
+   CTA AREA
+   ========================================== */
+
+.footerCta {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.footerHeading {
+  font-family: "Inter", sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  color: #f5f5f5;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.highlightText {
+  color: #22d3ee;
+  font-weight: 800;
+}
+
+.footerSubtext {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #737373;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+.scheduleButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: #f5f5f5;
+  color: #0a0a0a;
+  border: 1px solid #f5f5f5;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.3s ease;
+  will-change: transform;
+}
+
+.scheduleButton:hover {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+/* ==========================================
+   MIDDLE SECTION — 4 COLUMNS
+   ========================================== */
+
+.footerMiddle {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  border-top: 1px solid #1f1f1f;
+  padding-top: 60px;
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactLabel {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e5e5e5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contactLabel.muted {
+  color: #525252;
+  font-weight: 500;
+}
+
+.locationIcon {
+  font-size: 16px;
+}
+
+.contactValue {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #737373;
+  line-height: 1.8;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.contactValue:hover {
+  color: #e5e5e5;
+}
+
+.addressValue {
+  font-style: normal;
+  cursor: default;
+}
+
+.emailValue,
+.phoneValue {
+  color: #e5e5e5;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.emailValue:hover,
+.phoneValue:hover {
+  color: #22d3ee;
+}
+
+/* Quick Links */
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quickLink {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #737373;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.quickLink:hover {
+  color: #22d3ee;
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   BOTTOM BAR
+   ========================================== */
+
+.footerBottomBar {
+  width: 100%;
+  border-top: 1px solid #1f1f1f;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
+  align-items: center;
+  min-height: 64px;
+}
+
+.bottomItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  height: 100%;
+}
+
+.bottomDivider {
+  width: 1px;
+  height: 100%;
+  min-height: 64px;
+  background: #1f1f1f;
+}
+
+.bottomText {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #525252;
+}
+
+.bottomLink {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #525252;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.bottomLink:hover {
+  color: #e5e5e5;
+}
+
+/* ==========================================
+   SOCIAL ICONS
+   ========================================== */
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  color: #a3a3a3;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.socialIcon:hover {
+  color: #22d3ee;
+  transform: scale(1.15);
+}
+
+.socialIcon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 900px) {
+  .footerHeading {
+    font-size: 48px;
+  }
+
+  .footerMiddle {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .contactBlock:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .linksList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footerBottomBar {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .bottomDivider:nth-of-type(2),
+  .bottomDivider:nth-of-type(4) {
+    display: none;
+  }
+
+  .bottomItem:nth-child(7) {
+    grid-column: 1 / -1;
+    border-top: 1px solid #1f1f1f;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerSection {
+    padding-top: 60px;
+  }
+
+  .footerCta {
+    padding-bottom: 48px;
+  }
+
+  .footerHeading {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .footerSubtext {
+    font-size: 15px;
+  }
+
+  .footerMiddle {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 60px;
+    padding-top: 40px;
+  }
+
+  .linksList {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footerBottomBar {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .bottomDivider {
+    display: none;
+  }
+
+  .bottomItem {
+    border-bottom: 1px solid #1f1f1f;
+    justify-content: flex-start;
+    padding: 16px 20px;
+  }
+
+  .bottomItem:last-child {
+    border-bottom: none;
+    justify-content: center;
+  }
+
+  .socialRow {
+    justify-content: center;
+  }
+}
