@@ -1,6 +1,6 @@
 import aiImg from '../../assets/ai.png';
 import appdevImg from '../../assets/appdev.png';
-import AiML from '../../assets/AiMl.png';
+import AimL from '../../assets/AimL.png';
 import designImg from '../../assets/design.png';
 import webdevImg from '../../assets/webdev.png';
 
@@ -32,7 +32,7 @@ export const servicesData = [
     title: 'SEO',
     subtitle: 'Rank higher and grow organic traffic',
     description: 'We help you rank higher in search results and grow organic traffic with proven SEO strategies. Our services include on-page and off-page optimization, keyword research, technical SEO, content strategy, and link building.',
-    image: AiML,
+    image: AimL,
   },
   {
     id: 5,
