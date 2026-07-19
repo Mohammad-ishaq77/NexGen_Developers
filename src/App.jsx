@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeroSection from "./components/HeroSection/HeroSection";
-import Services, { servicesData } from "./components/Services/Services";
+import Services from "./components/Services/Services";
+import { servicesData } from './components/Services/servicesData';
 import ServiceDetail from "./components/Services/ServiceDetail";
 import Project from "./components/Projects/Project";
 import Technologies from "./components/Technologies/Technologies";
